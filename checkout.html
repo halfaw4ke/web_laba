@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа спецтехники — «СпецТехАренда»</title>
+</head>
+<body>
+    <header>
+        <h1>СпецТехАренда — Каталог строительной спецтехники</h1>
+        <p>Аренда тяжелой землеройной, грузоподъемной и дорожной техники для строительных объектов</p>
+        <nav aria-label="Основная навигация">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог техники</a></li>
+                <li><a href="detail.html">Детальный обзор (Komatsu PC200-8)</a></li>
+                <li><a href="collection.html">Смета аренды</a></li>
+                <li><a href="checkout.html">Оформить заказ</a></li>
+            </ul>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        <section>
+            <h2>Форма заказа строительной спецтехники</h2>
+            <p>Заполните реквизиты организации и параметры подачи техники на объект. Все обязательные поля отмечены.</p>
+
+            <form action="/submit-order" method="post">
+                <fieldset>
+                    <legend>Реквизиты организации-заказчика</legend>
+
+                    <p>
+                        <label for="org-inn">ИНН организации (10 или 12 цифр):</label><br>
+                        <input type="text" id="org-inn" name="org_inn" pattern="[0-9]{10}|[0-9]{12}" maxlength="12" placeholder="7701234567" required>
+                    </p>
+
+                    <p>
+                        <label for="legal-address">Юридический адрес организации:</label><br>
+                        <input type="text" id="legal-address" name="legal_address" minlength="10" maxlength="250" placeholder="г. Москва, ул. Строителей, д. 15, офис 4" required>
+                    </p>
+
+                    <p>
+                        <label for="contact-phone">Контактный телефон ответственного лица:</label><br>
+                        <input type="tel" id="contact-phone" name="contact_phone" pattern="\+?[0-9\s\-\(\)]{10,18}" placeholder="+7 (999) 123-45-67" required>
+                    </p>
+
+                    <p>
+                        <label for="contact-email">Электронная почта для отправки счета и договора:</label><br>
+                        <input type="email" id="contact-email" name="contact_email" placeholder="zakaz@stroycompany.ru" required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Параметры подачи и эксплуатации техники</legend>
+
+                    <p>
+                        <label for="delivery-date">Требуемая дата подачи техники на объект:</label><br>
+                        <input type="date" id="delivery-date" name="delivery_date" min="2026-11-13" required>
+                    </p>
+
+                    <p>
+                        <label for="payment-method">Способ оплаты по договору:</label><br>
+                        <select id="payment-method" name="payment_method" required>
+                            <option value="">-- Выберите способ оплаты --</option>
+                            <option value="cashless_vat">Безналичный расчет с НДС (20%)</option>
+                            <option value="cashless_no_vat">Безналичный расчет без НДС (УСН)</option>
+                            <option value="card_corporate">Корпоративная банковская карта</option>
+                        </select>
+                    </p>
+
+                    <p>Необходимость водителя-оператора:</p>
+                    <p>
+                        <input type="radio" id="operator-yes" name="need_operator" value="yes" required checked>
+                        <label for="operator-yes">Да, требуется экипаж (водитель-оператор арендодателя)</label><br>
+
+                        <input type="radio" id="operator-no" name="need_operator" value="no">
+                        <label for="operator-no">Нет, без водителя-оператора (холодная аренда)</label>
+                    </p>
+
+                    <p>
+                        <label for="task-description">Описание задачи и условий работы на объекте:</label><br>
+                        <textarea id="task-description" name="task_description" rows="5" cols="60" minlength="15" maxlength="1000" placeholder="Укажите адрес объекта, тип грунта, наличие подъездных путей и объем планируемых работ..." required></textarea>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="terms-agree" name="terms_agree" value="agreed" required>
+                        <label for="terms-agree">Подтверждаю достоверность реквизитов и согласен с условиями договора аренды спецтехники</label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Отправить заявку на заказ техники</button>
+                    <button type="reset">Очистить форму</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2026 ООО «СпецТехАренда». Все права защищены.</p>
+        <p>Контактный телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a> | Email: <a href="mailto:order@specteh-arenda.ru">order@specteh-arenda.ru</a></p>
+        <address>Адрес базы спецтехники: г. Москва, Проектируемый проезд № 4062, д. 6</address>
+    </footer>
+</body>
+</html>
